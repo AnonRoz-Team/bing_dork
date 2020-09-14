@@ -34,10 +34,10 @@ def single():
 	logo()
 	dork=raw_input('%s[%s?%s] Input dork : '%(W0,G0,W0))
 	page=raw_input('%s[%s?%s] Input page : '%(W0,G0,W0))
-	c=0
+	c=1
 	print
 	for taek in range(int(page)):
-		c+=11
+		c+=10
 		res=requests.get('http://www.bing.com/search?q='+dork+'&first='+str(c),headers={'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'})
 		soup=BeautifulSoup(res.text,'html.parser').find_all('ol')
 		for crot in soup:
@@ -66,11 +66,11 @@ def mass():
 	logo()
 	file=open(raw_input('%s[%s?%s] Input file : '%(W0,G0,W0))).read().splitlines()
 	page=raw_input('%s[%s?%s] Input page : '%(W0,G0,W0))
-	c=0
+	c=1
 	for dork in file:
 		print '\n%s[%s!%s] %sProccess dork %s%s\n'%(W0,Y0,W0,Y0,dork,W0)
 		for taek in range(int(page)):
-			c+=11
+			c+=10
 			res=requests.get('http://www.bing.com/search?q='+dork+'&first='+str(c), headers={'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'})
 			soup=BeautifulSoup(res.content, 'html.parser').find_all('ol')
 			for crot in soup:
