@@ -40,6 +40,7 @@ def single():
 		c+=11
 		res=requests.get('http://www.bing.com/search?q='+dork+'&first='+str(c),headers={'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'})
 		soup=BeautifulSoup(res.text,'html.parser').find_all('ol')
+		if len(soup)==2:print '%s[%s!%s] There are no results for %s'%(W0,R0,W0,dork);continue
 		for crot in soup:
 			try:
 				for site in crot.find_all('a'):
@@ -47,6 +48,7 @@ def single():
 					else:print '    '+site['href'];open('1','a+').write(site['href']+'\n')
 			except:break
 	same=[]
+	if os.path.exists('1')==False:exit('\n%s[%s!%s] There are no results'%(W0,R0,W0))
 	for domain in open('1').read().split('\n'):
 		if 'bing' in domain:continue
 		elif 'microsoft' in domain:continue
@@ -76,6 +78,7 @@ def mass():
 			c+=11
 			res=requests.get('http://www.bing.com/search?q='+dork+'&first='+str(c), headers={'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'})
 			soup=BeautifulSoup(res.content, 'html.parser').find_all('ol')
+			#if len(soup)==2:print '%s[%s!%s] There are no results for %s'%(W0,R0,W0,dork);continue
 			for crot in soup:
 				try:
 					for site in crot.find_all('a'):
@@ -83,6 +86,7 @@ def mass():
 						else:print '    '+site['href'];open('1','a+').write(site['href']+'\n')
 				except:break
 	same=[]
+	if os.path.exists('1')==False:exit('\n%s[%s!%s] There are no results'%(W0,R0,W0))
 	for domain in open('1').read().split('\n'):
 		if 'bing' in domain:continue
 		elif 'microsoft' in domain:continue
