@@ -65,7 +65,7 @@ def single():
 			try:
 				dadi=site.split('/')[0]+'//'+site.split('/')[2]
 				if dadi in podo:continue
-				else:open('results_domain.txt','a+').write(dadi+'\n')
+				else:podo.append(dadi);open('results_domain.txt','a+').write(dadi+'\n')
 			except:pass
 		exit('\n%s[%s✓%s] Done, saved in results_domain.txt'%(W,G,W))
 	else:exit('\n%s[%s✓%s] Done, saved in results.txt'%(W,G,W))
@@ -105,7 +105,7 @@ def mass():
 			try:
 				dadi=site.split('/')[0]+'//'+site.split('/')[2]
 				if dadi in podo:continue
-				else:open('results_domain.txt','a+').write(dadi+'\n')
+				else:podo.append(dadi);open('results_domain.txt','a+').write(dadi+'\n')
 			except:pass
 		exit('\n%s[%s✓%s] Done, saved in results_domain.txt'%(W,G,W))
 	else:exit('\n%s[%s✓%s] Done, saved in results.txt'%(W,G,W))
