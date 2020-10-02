@@ -47,8 +47,8 @@ def single():
 					if '/search?q' in site['href']:continue
 					else:print '    '+site['href'];open('1','a+').write(site['href']+'\n')
 			except:break
-	same=[]
 	if os.path.exists('1')==False:exit('\n%s[%s!%s] There are no results'%(W,R,W))
+	same=[]
 	for domain in open('1').read().split('\n'):
 		if 'bing' in domain:continue
 		elif 'microsoft' in domain:continue
@@ -60,11 +60,13 @@ def single():
 	chc=raw_input('\n%s[%s?%s] Choice : '%(W,R,W))
 	if chc == '1':exit('\n%s[%s✓%s] Done, saved in results.txt'%(W,G,W))
 	elif chc == '2':
+		podo=[]
 		for site in open('results.txt').read().split('\n'):
 			try:
-				#print site.split('/')[0]+'//'+site.split('/')[2]
-				open('results_domain.txt','a+').write(site.split('/')[0]+'//'+site.split('/')[2]+'\n')
-			except:break
+				dadi=site.split('/')[0]+'//'+site.split('/')[2]
+				if dadi in podo:continue
+				else:open('results_domain.txt','a+').write(dadi+'\n')
+			except:pass
 		exit('\n%s[%s✓%s] Done, saved in results_domain.txt'%(W,G,W))
 	else:exit('\n%s[%s✓%s] Done, saved in results.txt'%(W,G,W))
 def mass():
@@ -98,11 +100,13 @@ def mass():
 	chc=raw_input('\n%s[%s?%s] Choice : '%(W,R,W))
 	if chc == '1':exit('\n%s[%s✓%s] Done, saved in results.txt'%(W,G,W))
 	elif chc == '2':
+		podo=[]
 		for site in open('results.txt').read().split('\n'):
 			try:
-				#print '    '+site.split('/')[0]+'//'+site.split('/')[2]
-				open('results_domain.txt','a+').write(site.split('/')[0]+'//'+site.split('/')[2]+'\n')
-			except:break
+				dadi=site.split('/')[0]+'//'+site.split('/')[2]
+				if dadi in podo:continue
+				else:open('results_domain.txt','a+').write(dadi+'\n')
+			except:pass
 		exit('\n%s[%s✓%s] Done, saved in results_domain.txt'%(W,G,W))
 	else:exit('\n%s[%s✓%s] Done, saved in results.txt'%(W,G,W))
 if __name__=='__main__':
